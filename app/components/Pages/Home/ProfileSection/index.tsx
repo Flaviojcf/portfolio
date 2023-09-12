@@ -14,7 +14,7 @@ const MOCK_CONTACTS = [
     icon: <TbBrandLinkedin />,
   },
   {
-    url: 'https://github.com/Flaviojcf',
+    url: 'mailto:flaviojcostafilho@gmail.com',
     icon: <TbBrandGmail />,
   },
 ]
