@@ -27,10 +27,12 @@ export function ProfileSection() {
           <p className="font-mono text-emerald-400">Olá, meu nome é</p>
           <h2 className="text-4xl font-medium mt-2">Flávio Costa</h2>
           <p className="text-gray-400 my-6 text-sm sm:text-base">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-            aperiam eaque quod temporibus! Minima similique, modi aliquam unde
-            nisi quisquam neque deleniti nesciunt culpa. Accusamus voluptatum
-            suscipit laudantium recusandae autem?
+            Como desenvolvedor full stack, atuo no desenvolvimento de módulos,
+            correções e melhorias em sistemas, trabalhando com .NET Framework,
+            NHibernate, Javascript e Ionic. Além disso, obtive certificações
+            relevantes, como o Microsoft Certified: Azure AI Fundamentals, e
+            participei de projetos diversos, demonstrando minha capacidade em
+            Node, React, TypeScript, Docker e outras tecnologias.
           </p>
           <div className="flex flex-wrap gap-x-2 gap-y-3 lg:max-w-[340px]">
             {Array.from({ length: 5 }).map((_, index) => (
