@@ -1,7 +1,7 @@
 import { HiArrowNarrowRight } from 'react-icons/hi'
-import { Link } from '../Link'
-import { SectionTitle } from '../SectionTitle'
-import { SeparatorComponent } from '../Separator'
+import { Link } from '../../../Link'
+import { SectionTitle } from '../../../SectionTitle'
+import { SeparatorComponent } from '../../../Separator'
 import { ProjectCard } from './ProjectCard'
 
 export function MyProjectsSection() {
