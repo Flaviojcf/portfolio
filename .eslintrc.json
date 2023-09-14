@@ -3,6 +3,7 @@
     "next/core-web-vitals",
     "@rocketseat/eslint-config/react"
   ],
+  
   "rules": {
     "camelcase": "off",
     "no-unused-vars": "off",
