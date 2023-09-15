@@ -1,3 +1,4 @@
+'use client'
 import { Button } from '@/app/components/Button'
 import { TechBadge } from '@/app/components/TechBadge'
 import Image from 'next/image'
@@ -20,6 +21,14 @@ const MOCK_CONTACTS = [
 ]
 
 export function ProfileSection() {
+  function handleContact() {
+    const contactSection = document.querySelector('#contact')
+
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section className="w-full lg:h-heightProfileSection bg-hero-image bg-center bg-cover bg-no-repeat flex flex-col justify-end pb-10 sm:pb-32 py-32 lg:pb-paddingBottomProfileSection">
       <div className="container flex items-start justify-between flex-col-reverse lg:flex-row">
@@ -40,7 +49,7 @@ export function ProfileSection() {
             ))}
           </div>
           <div className="flex sm:items-center sm:gap-5 flex-col sm:flex-row mt-6 lg:mt-10">
-            <Button className="w-max shadow-button">
+            <Button className="w-max shadow-button" onClick={handleContact}>
               Entre em contato
               <HiArrowNarrowRight size={18} />
             </Button>
