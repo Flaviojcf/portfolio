@@ -4,6 +4,18 @@ import { ReactNode } from 'react'
 import { Header } from './components/Header'
 import { ContactForm } from './components/ContactForm'
 
+export const metadata = {
+  title: {
+    default: 'Home',
+    template: '%s | Flaviojcf',
+  },
+  icons: [
+    {
+      url: '/favicon.svg',
+    },
+  ],
+}
+
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin'],
