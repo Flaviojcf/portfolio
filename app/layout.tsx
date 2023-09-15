@@ -3,6 +3,7 @@ import './globals.css'
 import { ReactNode } from 'react'
 import { Header } from './components/Header'
 import { ContactForm } from './components/ContactForm'
+import { BackToTop } from './components/BackToTop'
 
 export const metadata = {
   title: {
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header />
         {children}
         <ContactForm />
+        <BackToTop />
       </body>
     </html>
   )
