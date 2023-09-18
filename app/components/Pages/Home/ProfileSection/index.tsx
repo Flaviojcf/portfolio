@@ -1,26 +1,17 @@
 'use client'
 import { Button } from '@/app/components/Button'
+import { IconCMS } from '@/app/components/IconCMS'
+import { RichText } from '@/app/components/RichText'
 import { TechBadge } from '@/app/components/TechBadge'
+import { HomePageInfo } from '@/app/types/pageInfo'
 import Image from 'next/image'
 import { HiArrowNarrowRight } from 'react-icons/hi'
-import { TbBrandGithub, TbBrandLinkedin, TbBrandGmail } from 'react-icons/tb'
 
-const MOCK_CONTACTS = [
-  {
-    url: 'https://github.com/Flaviojcf',
-    icon: <TbBrandGithub />,
-  },
-  {
-    url: 'https://www.linkedin.com/in/flávio-jcosta',
-    icon: <TbBrandLinkedin />,
-  },
-  {
-    url: 'mailto:flaviojcostafilho@gmail.com',
-    icon: <TbBrandGmail />,
-  },
-]
+interface IProfileSection {
+  homeInfo: HomePageInfo
+}
 
-export function ProfileSection() {
+export function ProfileSection({ homeInfo }: IProfileSection) {
   function handleContact() {
     const contactSection = document.querySelector('#contact')
 
@@ -35,17 +26,15 @@ export function ProfileSection() {
         <div className="w-full lg:max-w-[530px]">
           <p className="font-mono text-emerald-400">Olá, meu nome é</p>
           <h2 className="text-4xl font-medium mt-2">Flávio Costa</h2>
-          <p className="text-gray-400 my-6 text-sm sm:text-base">
-            Como desenvolvedor full stack, atuo no desenvolvimento de módulos,
-            correções e melhorias em sistemas, trabalhando com .NET Framework,
-            NHibernate, Javascript e Ionic. Além disso, obtive certificações
-            relevantes, como o Microsoft Certified: Azure AI Fundamentals, e
-            participei de projetos diversos, demonstrando minha capacidade em
-            Node, React, TypeScript, Docker e outras tecnologias.
-          </p>
+          <div className="text-gray-400 my-6 text-sm sm:text-base">
+            <RichText content={homeInfo.introduction.raw} />
+          </div>
           <div className="flex flex-wrap gap-x-2 gap-y-3 lg:max-w-[340px]">
-            {Array.from({ length: 5 }).map((_, index) => (
-              <TechBadge name="React.js" key={index} />
+            {homeInfo.technologies.map((technologie) => (
+              <TechBadge
+                name={technologie.name}
+                key={`tech-${technologie.name}`}
+              />
             ))}
           </div>
           <div className="flex sm:items-center sm:gap-5 flex-col sm:flex-row mt-6 lg:mt-10">
@@ -55,15 +44,19 @@ export function ProfileSection() {
             </Button>
 
             <div className="text-gray-600 text-2xl flex items-center h-20 gap-3">
-              {MOCK_CONTACTS.map((contact, index) => (
+              {homeInfo.socials.map((social, index) => (
                 <a
-                  href={contact.url}
+                  href={
+                    social.url === 'https://mail.google.com/'
+                      ? 'mailto:flaviojcostafilho@gmail.com'
+                      : social.url
+                  }
                   key={`contact-${index}`}
                   target="_blank"
                   className="hover:text-gray-100 transition-colors"
                   rel="noreferrer"
                 >
-                  {contact.icon}
+                  <IconCMS icon={social.iconSvg} />
                 </a>
               ))}
             </div>
@@ -73,7 +66,7 @@ export function ProfileSection() {
         <Image
           width={420}
           height={404}
-          src="/images/profile-pic.png"
+          src={homeInfo.profilePicture.url}
           alt="Profile image"
           className="w-[300px] h-[300px] lg:w-[420px] lg:h-[404px] mb-6 lg:mb-0 shadow-2xl rounded-lg object-cover"
         />
