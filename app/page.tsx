@@ -39,7 +39,7 @@ export default async function Home() {
   return (
     <>
       <ProfileSection homeInfo={pageData} />
-      <TechsSection />
+      <TechsSection techs={pageData.knownTechs} />
       <MyProjectsSection />
       <WorkExperienceSection />
     </>
