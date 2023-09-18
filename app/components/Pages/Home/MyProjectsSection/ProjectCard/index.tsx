@@ -2,16 +2,21 @@ import Image from 'next/image'
 import { TechBadge } from '../../../../TechBadge'
 import { Link } from '../../../../Link'
 import { HiArrowNarrowRight } from 'react-icons/hi'
+import { Project } from '@/app/types/projects'
 
-export function ProjectCard() {
+type ProjectCardProps = {
+  project: Project
+}
+
+export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="flex gap-6 flex-col lg:gap-12 lg:flex-row">
       <div className="w-full h-full">
         <Image
           width={420}
           height={304}
-          alt="Project Image"
-          src="https://picsum.photos/100"
+          alt={`Thumbnail do projeto ${project.title}`}
+          src={project.thumbnail.url}
           className="w-full h-[200px] sm:h-[300] lg:w-[420px] lg:min-h-full object-cover rounded-lg"
         />
       </div>
@@ -24,27 +29,19 @@ export function ProjectCard() {
             alt=""
             src="/images/icons/project-title-icon.svg"
           />
-          Project Name
+          {project.title}
         </h3>
-        <p className="text-gray-400 my-6">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos repellat
-          nihil nulla, reprehenderit asperiores saepe hic soluta consectetur
-          corrupti rem ea voluptatibus facilis commodi, optio provident
-          repellendus tempora expedita eum, enim explicabo. Maiores,
-          necessitatibus inventore. Officiis, beatae. Perspiciatis quod delectus
-          repellendus totam, aliquam, vitae autem corrupti, laborum eaque nemo
-          quo.
-        </p>
+        <p className="text-gray-400 my-6">{project.shortDescription}</p>
         <div className="flex gap-x-2 gap-y-3 flex-wrap mb-8 lg:max-w-[350px]">
-          <TechBadge name=".Net" />
-          <TechBadge name=".Net" />
-          <TechBadge name=".Net" />
-          <TechBadge name=".Net" />
-          <TechBadge name=".Net" />
-          <TechBadge name=".Net" />
+          {project.technologies.map((tech) => (
+            <TechBadge
+              name={tech.name}
+              key={`${project.title}-tech-${tech.name}`}
+            />
+          ))}
         </div>
 
-        <Link href="/projects/teste">
+        <Link href={`/projects/${project.slug}`}>
           Ver projeto
           <HiArrowNarrowRight />
         </Link>
