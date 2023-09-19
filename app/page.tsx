@@ -7,41 +7,70 @@ import { fetchHygraphQuery } from './utils/fetchHygraphQuery'
 
 const getPageData = async (): Promise<HomePageData> => {
   const query = `
-    query PageInfoQuery {
-      page(where: {slug: "home"}) {
-        introduction {
-          raw
+  query PageInfoQuery {
+    page(where: {slug: "home"}) {
+      introduction {
+        raw
+      }
+      technologies {
+        name
+      }
+      profilePicture {
+        url
+      }
+      socials {
+        url
+        iconSvg
+      }
+      knownTechs {
+        iconSvg
+        name
+        startDate
+      }
+      highlightProjects {
+        slug
+        thumbnail {
+          url
         }
+        title
+        shortDescription
         technologies {
           name
         }
-        profilePicture {
-          url
-        }
-        socials {
-          url
-          iconSvg
-        }
-        knownTechs {
-          iconSvg
-          name
-          startDate
-        }
       }
     }
-  `
-  return fetchHygraphQuery(query)
+    workExperiences {
+      companyLogo {
+        url
+      }
+      role
+      companyName
+      companyUrl
+      startDate
+      endDate
+      description {
+        raw
+      }
+      technologies {
+        name
+      }
+    }
+  }
+`
+  return fetchHygraphQuery(query, 15 * 1)
 }
 
 export default async function Home() {
-  const { page: pageData } = await getPageData()
+  const { page: pageData, workExperiences } = await getPageData()
+
+  console.log(workExperiences)
 
   return (
     <>
       <ProfileSection homeInfo={pageData} />
       <TechsSection techs={pageData.knownTechs} />
-      <MyProjectsSection />
-      <WorkExperienceSection />
+      <MyProjectsSection projects={pageData.highlightProjects} />
+      <WorkExperienceSection workExperiences={workExperiences} />
     </>
   )
 }
