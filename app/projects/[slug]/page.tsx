@@ -1,10 +1,6 @@
 import { ProjectDetails } from '@/app/components/Project/ProjectDetails'
 import { ProjectImagesSection } from '@/app/components/Project/ProjectImagesSection'
-import {
-  ProjectPageData,
-  ProjectsPageData,
-  ProjectsPageStaticData,
-} from '@/app/types/pageInfo'
+import { ProjectPageData, ProjectsPageStaticData } from '@/app/types/pageInfo'
 import { fetchHygraphQuery } from '@/app/utils/fetchHygraphQuery'
 import { Metadata } from 'next'
 
