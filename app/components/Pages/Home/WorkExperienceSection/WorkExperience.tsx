@@ -68,7 +68,7 @@ export function WorkExperience({ experience }: WorkExperienceProps) {
             @{experience.companyName}
           </a>
 
-          <h4 className="text-gray-300">Full Stack Developer</h4>
+          <h4 className="text-gray-300">{experience.role}</h4>
           <span className="text-gray-500">
             {formattedStartDate} - {formattedEndDate} · {formattedDuration}
           </span>
