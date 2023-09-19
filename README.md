@@ -1,5 +1,5 @@
 <a name="readme-top"></a>
-<h1 align="center">lets-code</h1>
+<h1 align="center">Portfolio</h1>
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -20,7 +20,7 @@
     <a href="https://github.com/Flaviojcf/portfolio"><strong>Explore the code »</strong></a>
     <br />
     <br />
-    <a href="https://portfolio-flaviojcf.vercel.app/">View Demo</a>
+    <a href="https://portfolio-flaviojcf.vercel.app/" target="_blank">View Demo</a>
   </p>
 </div>
 
