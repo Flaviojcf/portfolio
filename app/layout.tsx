@@ -4,6 +4,7 @@ import { ReactNode } from 'react'
 import { Header } from './components/Header'
 import { ContactForm } from './components/ContactForm'
 import { BackToTop } from './components/BackToTop'
+import { Toaster } from './components/Toaster'
 
 export const metadata = {
   title: {
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${plexMono.variable}`}>
       <body>
+        <Toaster />
         <Header />
         {children}
         <ContactForm />
