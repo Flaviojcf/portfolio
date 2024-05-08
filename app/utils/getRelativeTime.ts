@@ -4,7 +4,7 @@ export function getRelativeTimeString(
 ): string {
   const timeMs = typeof date === 'number' ? date : date.getTime()
   const deltaSeconds = Math.round((timeMs - Date.now()) / 1000)
-
+  console.log(timeMs, Math.abs(deltaSeconds))
   const cutoffs = [
     60,
     3600,

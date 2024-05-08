@@ -8,6 +8,8 @@ interface ITechSection {
 }
 
 export function TechSection({ tech }: ITechSection) {
+  console.log(getRelativeTimeString(new Date(tech.startDate), 'pt-BR'))
+
   const relativeTIme = getRelativeTimeString(
     new Date(tech.startDate),
     'pt-BR',
